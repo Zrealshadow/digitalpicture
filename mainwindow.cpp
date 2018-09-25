@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     QImage *temp=new QImage;
-    QString path=":/temp.png";
+    QString path="../digitalprocess/asset/temp.png";
     if(!(temp->load(path))){
         QMessageBox::information(this,tr("Fail"),tr("fail to open the picture"));
         delete temp;
@@ -43,8 +43,7 @@ void MainWindow::on_input_clicked()
         else{
             QImage *img=new QImage;
             if(!(img->load(path))){
-//                QMessageBox::information(this,tr("Fail"),tr("fail to open the picture"));
-                QMessageBox::information(this,tr("Fail"),path);
+               QMessageBox::information(this,tr("Fail"),tr("fail to open the picture"));
                 delete img;
                 return;
             }
