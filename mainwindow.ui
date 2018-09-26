@@ -17,13 +17,78 @@
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>10</x>
       <y>390</y>
-      <width>321</width>
+      <width>871</width>
       <height>80</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="minimumSize">
+        <size>
+         <width>7</width>
+         <height>78</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>x</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_6">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="img_x"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>y</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="img_y"/>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_7">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
@@ -46,19 +111,6 @@
      </item>
      <item>
       <widget class="QLineEdit" name="line_x"/>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer_3">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
      </item>
      <item>
       <widget class="QLabel" name="label_2">
@@ -93,6 +145,18 @@
       <width>311</width>
       <height>341</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>311</width>
+      <height>341</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>311</width>
+      <height>341</height>
+     </size>
     </property>
     <property name="text">
      <string>TextLabel</string>
@@ -162,9 +226,21 @@
      <rect>
       <x>510</x>
       <y>40</y>
-      <width>331</width>
+      <width>311</width>
       <height>341</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>311</width>
+      <height>341</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>311</width>
+      <height>341</height>
+     </size>
     </property>
     <property name="text">
      <string>TextLabel</string>
@@ -173,9 +249,9 @@
    <widget class="QLabel" name="temp">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>390</x>
       <y>200</y>
-      <width>111</width>
+      <width>81</width>
       <height>41</height>
      </rect>
     </property>
