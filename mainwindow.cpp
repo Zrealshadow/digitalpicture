@@ -24,6 +24,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->temp->setPixmap(QPixmap::fromImage(*temp));
     ui->temp_2->setScaledContents(true);
     ui->temp_2->setPixmap(QPixmap::fromImage(*temp));
+    ui->temp_3->setScaledContents(true);
+    ui->temp_3->setPixmap(QPixmap::fromImage(*temp));
+    ui->temp_plot->setScaledContents(true);
+    ui->temp_plot->setPixmap(QPixmap::fromImage(*temp));
 }
 
 MainWindow::~MainWindow()
@@ -127,4 +131,25 @@ void MainWindow::on_bmp2txt_clicked()
             case 8:ui->sp_8->setScaledContents(true);ui->sp_8->setPixmap(QPixmap::fromImage(*new_img));break;
         }
     }
+}
+
+void MainWindow::on_input_plot_clicked()
+{
+    img=func::func_input();
+    ui->input_img_plot->setScaledContents(true);
+    ui->input_img_plot->setPixmap(QPixmap::fromImage(*img));
+
+}
+
+void MainWindow::on_plot_2_clicked()
+{
+    QString s_t=ui->Threshold->text();
+    new_img=func::func_threshhold(img,s_t);
+    ui->trans_img_plot->setScaledContents(true);
+    ui->trans_img_plot->setPixmap(QPixmap::fromImage(*new_img));
+}
+
+void MainWindow::on_save_plot_clicked()
+{
+        func::func_save(new_img);
 }

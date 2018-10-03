@@ -216,3 +216,27 @@ QImage *func::func_bmp2txt_one(QImage *img,int k){
     return new_img;
 }
 
+QImage * func::func_threshhold(QImage *img,QString s_t){
+    QImage *new_img=new QImage(img->width(),img->height(),img->format());
+
+    if(isDigitString(s_t)){
+        QMessageBox::information(NULL,MainWindow::tr("fail"),MainWindow::tr("input format is error"));
+    }
+    else{
+        int th=s_t.toInt();
+        for(int y=0;y<img->height();y++){
+            QRgb *line=(QRgb *)img->scanLine(y);
+            for(int x=0;x<img->width();x++){
+                int average=(qRed(line[x])+qGreen(line[x])+qBlue(line[x]))/3;
+                if(average>th){
+                    new_img->setPixel(x,y,qRgb(255,255,255));
+                }
+                else{
+                    new_img->setPixel(x,y,qRgb(0,0,0));
+                }
+            }
+        }
+    }
+    return new_img;
+}
+

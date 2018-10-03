@@ -38,6 +38,12 @@ private slots:
 
     void on_bmp2txt_clicked();
 
+    void on_input_plot_clicked();
+
+    void on_plot_2_clicked();
+
+    void on_save_plot_clicked();
+
 private:
     Ui::MainWindow *ui;
 
