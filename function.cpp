@@ -6,7 +6,7 @@ bool isDigitString(QString src){
     std::istringstream iss(s);
     int num;
     iss>>num;
-    qDebug()<<num;
+//    qDebug()<<num;
     if(num==0)
         return true;
     else
@@ -97,7 +97,7 @@ QImage * func::func_input(){
         }
         else{
 //            qDebug()<<2;
-            qDebug()<<(img->load(path));
+//            qDebug()<<(img->load(path));
 //            qDebug()<<2;
             if(!(img->load(path))){
                QMessageBox::information(NULL,MainWindow::tr("Fail"),MainWindow::tr("fail to open the picture"));
@@ -185,6 +185,34 @@ QImage* func::func_sampling(QImage *img,QString pix_x,QString pix_y){
 
 }
 
-QImage *func::func_bmp2txt(QImage *img,int i){
+QImage *func::func_bmp2txt_one(QImage *img,int k){
+    QImage *new_img=new QImage(img->width(),img->height(),img->format());
+    QImage *grey_img=new QImage(img->width(),img->height(),img->format());
+    grey_img=func::func_quantify(img,"256");
+    for(int y=0;y<new_img->height();y++){
+        QRgb *line=(QRgb *)img->scanLine(y);
+        for(int x=0;x<new_img->width();x++){
+            int value=qRed(line[x]);
 
+
+            int ff=(value>>(8-k))&1;
+//            if(x==2&&y==6){
+//               value=2;
+//               ff=(value>>1)&1;
+//               qDebug()<<ff;
+//            }
+            if(ff==1){
+//                qDebug()<<ff;
+                new_img->setPixel(x,y,qRgb(255,255,255));
+            }
+
+            else{
+//                qDebug()<<ff;
+                new_img->setPixel(x,y,qRgb(0,0,0));
+            }
+
+        }
+    }
+    return new_img;
 }
+

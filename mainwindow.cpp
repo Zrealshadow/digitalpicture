@@ -114,5 +114,17 @@ void MainWindow::on_save_4_clicked()
 
 void MainWindow::on_bmp2txt_clicked()
 {
-
+    for(int i=0;i<8;i++){
+        new_img=func::func_bmp2txt_one(img,i+1);
+        switch (i+1) {
+            case 1:ui->sp_1->setScaledContents(true);ui->sp_1->setPixmap(QPixmap::fromImage(*new_img));break;
+            case 2:ui->sp_2->setScaledContents(true);ui->sp_2->setPixmap(QPixmap::fromImage(*new_img));break;
+            case 3:ui->sp_3->setScaledContents(true);ui->sp_3->setPixmap(QPixmap::fromImage(*new_img));break;
+            case 4:ui->sp_4->setScaledContents(true);ui->sp_4->setPixmap(QPixmap::fromImage(*new_img));break;
+            case 5:ui->sp_5->setScaledContents(true);ui->sp_5->setPixmap(QPixmap::fromImage(*new_img));break;
+            case 6:ui->sp_6->setScaledContents(true);ui->sp_6->setPixmap(QPixmap::fromImage(*new_img));break;
+            case 7:ui->sp_7->setScaledContents(true);ui->sp_7->setPixmap(QPixmap::fromImage(*new_img));break;
+            case 8:ui->sp_8->setScaledContents(true);ui->sp_8->setPixmap(QPixmap::fromImage(*new_img));break;
+        }
+    }
 }
