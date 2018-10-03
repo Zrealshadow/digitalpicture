@@ -15,6 +15,7 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
 private slots:
     void on_input_clicked();
     
@@ -22,10 +23,25 @@ private slots:
     
     void on_save_clicked();
     
+
+    void on_input_3_clicked();
+
+    void on_save_3_clicked();
+
+
     void on_grey_clicked();
+
+    void on_input_4_clicked();
+
+    void on_save_4_clicked();
+
+
+    void on_bmp2txt_clicked();
 
 private:
     Ui::MainWindow *ui;
+
+
 };
 
 #endif // MAINWINDOW_H
