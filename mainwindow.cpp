@@ -143,8 +143,19 @@ void MainWindow::on_input_plot_clicked()
 
 void MainWindow::on_plot_2_clicked()
 {
+    ui->mean->clear();
+    ui->mid->clear();
+    ui->std->clear();
+    ui->Pixels->clear();
+
     QString s_t=ui->Threshold->text();
     new_img=func::func_threshhold(img,s_t);
+    QHash<QString,double> map=func::func_cal(img);
+
+    ui->Pixels->insert(QString::number((int)map["Pixels"],10));
+    ui->mean->insert(QString::number((int)map["Mean"],10));
+    ui->mid->insert(QString::number((int)map["Mid"],10));
+    ui->std->insert(QString::number(map["Stdev"],10,2));
     ui->trans_img_plot->setScaledContents(true);
     ui->trans_img_plot->setPixmap(QPixmap::fromImage(*new_img));
 }
