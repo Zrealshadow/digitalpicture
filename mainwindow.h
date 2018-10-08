@@ -44,6 +44,12 @@ private slots:
 
     void on_save_plot_clicked();
 
+    void on_input_hist_clicked();
+
+    void on_hist_clicked();
+
+    void on_save_hist_clicked();
+
 private:
     Ui::MainWindow *ui;
 

@@ -9,6 +9,7 @@
 #include "iostream"
 #include "sstream"
 #include "function.h"
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -28,6 +29,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->temp_3->setPixmap(QPixmap::fromImage(*temp));
     ui->temp_plot->setScaledContents(true);
     ui->temp_plot->setPixmap(QPixmap::fromImage(*temp));
+    ui->temp_hist->setScaledContents(true);
+    ui->temp_hist->setPixmap(QPixmap::fromImage(*temp));
 }
 
 MainWindow::~MainWindow()
@@ -100,9 +103,6 @@ void MainWindow::on_save_3_clicked()
       func::func_save(new_img);
 }
 
-
-
-
 void MainWindow::on_input_4_clicked()
 {
     img=func::func_input();
@@ -163,4 +163,85 @@ void MainWindow::on_plot_2_clicked()
 void MainWindow::on_save_plot_clicked()
 {
         func::func_save(new_img);
+}
+
+
+void MainWindow::on_input_hist_clicked()
+{
+
+    img=func::func_input();
+    ui->input_img_hist->setScaledContents(true);
+    ui->input_img_hist->setPixmap(QPixmap::fromImage(*img));
+}
+
+void MainWindow::on_hist_clicked()
+{
+    ui->mean_hist->clear();
+    ui->mid_hist->clear();
+    ui->std_hist->clear();
+    ui->Pixels_hist->clear();
+    QHash<QString,double> map=func::func_cal(img);
+    ui->Pixels_hist->insert(QString::number((int)map["Pixels"],10));
+    ui->mean_hist->insert(QString::number((int)map["Mean"],10));
+    ui->mid_hist->insert(QString::number((int)map["Mid"],10));
+    ui->std_hist->insert(QString::number(map["Stdev"],10,2));
+
+
+    QVector<double> datay=func::func_pixmap(img);
+//    new_img=func::func_painter(map,img);
+    int maxy=0;
+    QVector<double>::iterator it;
+    for(it=datay.begin();it!=datay.end();it++){
+        if(*it>maxy)
+            maxy=*it;
+    }
+
+    ui->qcustomplotWidget->clearGraphs();
+    QVector<double> datax(256);
+    for(int i=0;i<256;i++){
+        datax[i]=i;
+    }
+//    qDebug()<<datax;
+//    qDebug()<<datay;
+    ui->qcustomplotWidget->xAxis->setLabel("Gray");
+    ui->qcustomplotWidget->yAxis->setLabel("Count");
+    ui->qcustomplotWidget->xAxis->setRange(0,256);
+    ui->qcustomplotWidget->yAxis->setRange(0,maxy);
+    QCPBars *bars=new QCPBars(ui->qcustomplotWidget->xAxis,ui->qcustomplotWidget->yAxis);
+    bars->setData(datax,datay);
+    bars->setPen(QColor(0,0,0));
+    bars->setWidth(0.5);
+    ui->qcustomplotWidget->setVisible(true);
+    ui->qcustomplotWidget->replot();
+    ui->qcustomplotWidget->xAxis->rescale(true);
+    ui->qcustomplotWidget->yAxis->rescale(true);
+
+
+}
+
+void MainWindow::on_save_hist_clicked()
+{
+    QFileDialog * fileDialog=new QFileDialog();
+    fileDialog->setWindowTitle(MainWindow::tr("save As"));
+    fileDialog->setAcceptMode(QFileDialog::AcceptSave);
+    fileDialog->setFileMode(QFileDialog::AnyFile);
+    fileDialog->setViewMode(QFileDialog::Detail);
+    fileDialog->setGeometry(500,300,1000,600);
+    fileDialog->setDirectory("..");
+    fileDialog->selectNameFilter(MainWindow::tr("Image Files(*.png *.bmp *.jpg *.tif *.GIF)"));
+    QString filename=fileDialog->getSaveFileName();
+    if(filename.isEmpty())
+    {
+
+    }
+    else
+    {
+        if(! ui->qcustomplotWidget->savePng(filename) ) //保存图像
+        {
+            QMessageBox::information(NULL,
+                MainWindow::tr("Failed to save the image"),
+                MainWindow::tr("Failed to save the image!"));
+
+        }
+    }
 }

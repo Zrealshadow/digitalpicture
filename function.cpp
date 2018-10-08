@@ -270,3 +270,61 @@ QHash<QString,double>func::func_cal(QImage *img){
 
     return map;
 }
+
+QVector<double> func::func_pixmap(QImage *img){
+    QVector<double> map(256);
+    for(int y=0;y<img->height();y++){
+        QRgb *line=(QRgb*)img->scanLine(y);
+        for(int x=0;x<img->width();x++){
+            int average=(qRed(line[x])+qGreen(line[x])+qBlue(line[x]))/3;
+            map[average]=map[average]+1;
+        }
+    }
+    return map;
+}
+
+//QImage* func::func_painter(std::vector<int> count,QImage *img){
+//    QPainter *p=new QPainter();
+//    p->setBrush(QBrush(QColor(121,121,121)));
+//    p->drawRect(0,0,img->width(),img->height());
+
+//    p->setBrush(QBrush(QColor(255,255,255)));
+//    p->drawRect(0,0,img->width(),img->height());
+//    std::vector<int> sortcount=count;
+//    sort(sortcount.begin(),sortcount.end());
+//    int maxcount=sortcount[sortcount.size()-1];
+
+//    QImage *new_img=new QImage(img->width(),img->height(),img->format());
+
+//    new_img->fill(qRgb(255,255,255));
+//    p->translate(0,new_img->height());
+
+//    p->drawLine(0,0,100,100);
+
+//    int wid=new_img->width();
+//    int hei=new_img->height();
+
+//    p->drawLine(10,-10,wid-10,-10);
+//    p->drawLine(10,-10,10,-hei+10);
+
+//    float xstep=float(wid-20)/255;
+//    float ystep=float(hei-20)/maxcount;
+
+//    for(int i=0;i<256;i++){
+//        if(i!=255){
+//            QColor color(i,255-i,0);
+//            p->setBrush(color);
+//            p->setPen(color);
+
+//            p->drawRect(10+i*xstep,-10,xstep,-10-ystep*count[i]);
+
+
+//        }
+
+//        if(i%32==0||i==255){
+//            p->drawText(QPointF(10+(i-0.5)*xstep,0),QString::number(i));
+//        }
+//    }
+
+//   return new_img;
+//}

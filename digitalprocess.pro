@@ -6,6 +6,8 @@
 
 QT       += core gui widgets
 
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
+
 TARGET = digitalprocess
 TEMPLATE = app
 
@@ -25,12 +27,16 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
     mainwindow.cpp \
-    function.cpp
+    function.cpp \
+    qcustomplot.cpp
 
 HEADERS += \
         mainwindow.h \
     function.h \
-    function.h
+    function.h \
+    ../../Downloads/qcustomplot.h \
+    ../../Downloads/qcustomplot/qcustomplot.h \
+    qcustomplot.h
 
 FORMS += \
         mainwindow.ui
