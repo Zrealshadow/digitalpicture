@@ -27,14 +27,14 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;sampling&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="sampling">
      <property name="whatsThis">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;sampling&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <attribute name="title">
-      <string>sampling</string>
+      <string>SAMPLE</string>
      </attribute>
      <widget class="QWidget" name="horizontalLayoutWidget">
       <property name="geometry">
@@ -284,7 +284,7 @@
     </widget>
     <widget class="QWidget" name="qualitify">
      <attribute name="title">
-      <string>qualitify</string>
+      <string>QUALITIFY</string>
      </attribute>
      <widget class="QLabel" name="input_img_2">
       <property name="geometry">
@@ -446,7 +446,7 @@
     </widget>
     <widget class="QWidget" name="txt2">
      <attribute name="title">
-      <string>2txt</string>
+      <string>2TXT</string>
      </attribute>
      <widget class="QWidget" name="horizontalLayoutWidget_6">
       <property name="geometry">
@@ -652,7 +652,7 @@
     </widget>
     <widget class="QWidget" name="plot">
      <attribute name="title">
-      <string>threshold</string>
+      <string>THRESH</string>
      </attribute>
      <widget class="QLabel" name="trans_img_plot">
       <property name="geometry">
@@ -954,7 +954,7 @@
     </widget>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-      <string>hist</string>
+      <string>HIST</string>
      </attribute>
      <widget class="QLabel" name="input_img_hist">
       <property name="geometry">
@@ -1202,6 +1202,173 @@
         <height>341</height>
        </rect>
       </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>POINT</string>
+     </attribute>
+     <widget class="QLabel" name="temp_hist_point">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>230</y>
+        <width>81</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="input_img_point">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>70</y>
+        <width>311</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>311</width>
+        <height>341</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>311</width>
+        <height>341</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Input Picture</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="trans_img_point">
+      <property name="geometry">
+       <rect>
+        <x>560</x>
+        <y>70</y>
+        <width>311</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>311</width>
+        <height>341</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>311</width>
+        <height>341</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Output Picture</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_65">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>490</y>
+        <width>661</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_77">
+       <item>
+        <widget class="QPushButton" name="input_hist_point">
+         <property name="text">
+          <string>input</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_118">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="bright_point">
+         <property name="text">
+          <string>bright</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_119">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="dim_point">
+         <property name="text">
+          <string>dim</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_8">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="save_hist_point">
+         <property name="text">
+          <string>save</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_10">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="show_histogram_point">
+         <property name="text">
+          <string>histogram</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
    </widget>

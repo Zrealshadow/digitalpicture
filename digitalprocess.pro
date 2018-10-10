@@ -28,7 +28,9 @@ SOURCES += \
         main.cpp \
     mainwindow.cpp \
     function.cpp \
-    qcustomplot.cpp
+    qcustomplot.cpp \
+    histogram.cpp \
+    hist_func.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -36,10 +38,13 @@ HEADERS += \
     function.h \
     ../../Downloads/qcustomplot.h \
     ../../Downloads/qcustomplot/qcustomplot.h \
-    qcustomplot.h
+    qcustomplot.h \
+    histogram.h \
+    hist_func.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    histogram.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

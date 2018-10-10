@@ -37,6 +37,7 @@ QVector<double> func_pixmap(QImage *img);
 
 //QImage* func_painter(std::vector<int> count,QImage * img);
 
+QImage* func_bright_dim(QImage *img,const double a,const int b);
 }
 
 #endif // FUNCTION_H

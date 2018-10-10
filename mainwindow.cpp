@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     QImage *temp=new QImage;
-    QString path="../digitalprocess/asset/temp.png";
+    QString path="../digitalpictures/asset/temp.png";
     if(!(temp->load(path))){
         QMessageBox::information(this,tr("Fail"),tr("fail to open the picture"));
         delete temp;
@@ -31,6 +31,16 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->temp_plot->setPixmap(QPixmap::fromImage(*temp));
     ui->temp_hist->setScaledContents(true);
     ui->temp_hist->setPixmap(QPixmap::fromImage(*temp));
+
+    ui->qcustomplotWidget->xAxis->setLabel("Gray");
+    ui->qcustomplotWidget->yAxis->setLabel("Count");
+    ui->qcustomplotWidget->xAxis->setRange(0,256);
+    ui->qcustomplotWidget->xAxis->rescale(true);
+    ui->qcustomplotWidget->yAxis->rescale(true);
+    ui->qcustomplotWidget->xAxis2->setVisible(true);
+    ui->qcustomplotWidget->xAxis2->setTickLabels(false);
+    ui->qcustomplotWidget->yAxis2->setVisible(true);
+    ui->qcustomplotWidget->yAxis2->setTickLabels(false);
 }
 
 MainWindow::~MainWindow()
@@ -40,10 +50,12 @@ MainWindow::~MainWindow()
 
 //*----------------------------------------------------------*
 
-
 QImage *img;
 QImage * new_img;
-
+const double bright_coef=1.2;
+const double dim_coef=0.8;
+const int bright_bias=0;
+const int dim_bias=0;
 void MainWindow::on_input_clicked()
 {
             img=func::func_input();
@@ -205,16 +217,18 @@ void MainWindow::on_hist_clicked()
 //    qDebug()<<datay;
     ui->qcustomplotWidget->xAxis->setLabel("Gray");
     ui->qcustomplotWidget->yAxis->setLabel("Count");
-    ui->qcustomplotWidget->xAxis->setRange(0,256);
+    ui->qcustomplotWidget->xAxis->setRange(0,270);
     ui->qcustomplotWidget->yAxis->setRange(0,maxy);
+
+
+
     QCPBars *bars=new QCPBars(ui->qcustomplotWidget->xAxis,ui->qcustomplotWidget->yAxis);
     bars->setData(datax,datay);
     bars->setPen(QColor(0,0,0));
     bars->setWidth(0.5);
     ui->qcustomplotWidget->setVisible(true);
     ui->qcustomplotWidget->replot();
-    ui->qcustomplotWidget->xAxis->rescale(true);
-    ui->qcustomplotWidget->yAxis->rescale(true);
+
 
 
 }
@@ -244,4 +258,40 @@ void MainWindow::on_save_hist_clicked()
 
         }
     }
+}
+
+void MainWindow::on_input_hist_point_clicked()
+{
+    img=func::func_input();
+    new_img=img;
+    ui->input_img_point->setScaledContents(true);
+    ui->input_img_point->setPixmap(QPixmap::fromImage(*img));
+}
+
+void MainWindow::on_save_hist_point_clicked()
+{
+    func::func_save(new_img);
+}
+
+
+
+void MainWindow::on_bright_point_clicked()
+{
+    new_img=func::func_bright_dim(new_img,bright_coef,bright_bias);
+    ui->trans_img_point->setScaledContents(true);
+    ui->trans_img_point->setPixmap(QPixmap::fromImage(*new_img));
+
+}
+
+void MainWindow::on_dim_point_clicked()
+{
+    new_img=func::func_bright_dim(new_img,dim_coef,dim_bias);
+    ui->trans_img_point->setScaledContents(true);
+    ui->trans_img_point->setPixmap(QPixmap::fromImage(*new_img));
+}
+
+void MainWindow::on_show_histogram_point_clicked()
+{
+    hist_show=new Histogram(this);
+    MainWindow::hist_show->show();
 }

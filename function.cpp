@@ -48,7 +48,18 @@ int Greytrans(int grey,int pixel){
     return ans;
 }
 
-
+int isvalid(int t){
+    int ans;
+    if(t>255){
+        ans=255;
+    }
+    else if(t<0){
+        ans=0;
+    }
+    else
+        ans=t;
+    return ans;
+}
 /*---------------------------------------------------*/
 
 void func::func_save(QImage *img){
@@ -88,10 +99,7 @@ QImage * func::func_input(){
     fileDialog->setGeometry(500,300,1000,600);
     fileDialog->setDirectory("..");
     fileDialog->selectNameFilter(MainWindow::tr("Image Files(*.png *.bmp *.jpg *.tif *.GIF)"));
-
-
-    if(fileDialog->exec()==QDialog::Accepted){
-        QString path=fileDialog->selectedFiles()[0];
+     QString path=fileDialog->getOpenFileName();
         if(path.isEmpty()){
 
         }
@@ -107,7 +115,7 @@ QImage * func::func_input(){
             else
                 return img;
             }
-    }
+
 }
 
 QImage* func::func_quantify(QImage *img,QString s_grey){
@@ -283,48 +291,16 @@ QVector<double> func::func_pixmap(QImage *img){
     return map;
 }
 
-//QImage* func::func_painter(std::vector<int> count,QImage *img){
-//    QPainter *p=new QPainter();
-//    p->setBrush(QBrush(QColor(121,121,121)));
-//    p->drawRect(0,0,img->width(),img->height());
-
-//    p->setBrush(QBrush(QColor(255,255,255)));
-//    p->drawRect(0,0,img->width(),img->height());
-//    std::vector<int> sortcount=count;
-//    sort(sortcount.begin(),sortcount.end());
-//    int maxcount=sortcount[sortcount.size()-1];
-
-//    QImage *new_img=new QImage(img->width(),img->height(),img->format());
-
-//    new_img->fill(qRgb(255,255,255));
-//    p->translate(0,new_img->height());
-
-//    p->drawLine(0,0,100,100);
-
-//    int wid=new_img->width();
-//    int hei=new_img->height();
-
-//    p->drawLine(10,-10,wid-10,-10);
-//    p->drawLine(10,-10,10,-hei+10);
-
-//    float xstep=float(wid-20)/255;
-//    float ystep=float(hei-20)/maxcount;
-
-//    for(int i=0;i<256;i++){
-//        if(i!=255){
-//            QColor color(i,255-i,0);
-//            p->setBrush(color);
-//            p->setPen(color);
-
-//            p->drawRect(10+i*xstep,-10,xstep,-10-ystep*count[i]);
-
-
-//        }
-
-//        if(i%32==0||i==255){
-//            p->drawText(QPointF(10+(i-0.5)*xstep,0),QString::number(i));
-//        }
-//    }
-
-//   return new_img;
-//}
+QImage* func::func_bright_dim(QImage *img,const double a,const int b){
+    QImage *new_img=new QImage(img->width(),img->height(),img->format());
+    for(int y=0;y<img->height();y++){
+        QRgb *line=(QRgb *)img->scanLine(y);
+        for(int x=0;x<img->width();x++){
+            int red=isvalid(qRed(line[x])*a+b);
+            int green=isvalid(qGreen(line[x])*a+b);
+            int blue=isvalid(qBlue(line[x])*a+b);
+            new_img->setPixel(x,y,qRgb(red,green,blue));
+        }
+    }
+    return new_img;
+}

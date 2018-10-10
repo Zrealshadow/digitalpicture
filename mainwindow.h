@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include <histogram.h>
 namespace Ui {
 class MainWindow;
 }
@@ -50,9 +50,19 @@ private slots:
 
     void on_save_hist_clicked();
 
+    void on_input_hist_point_clicked();
+
+    void on_save_hist_point_clicked();
+
+    void on_bright_point_clicked();
+
+    void on_dim_point_clicked();
+
+    void on_show_histogram_point_clicked();
+
 private:
     Ui::MainWindow *ui;
-
+    Histogram *hist_show;
 
 };
 
