@@ -15,6 +15,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    __init__();
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+void MainWindow::__init__(){
     QImage *temp=new QImage;
     QString path="../digitalpictures/asset/temp.png";
     if(!(temp->load(path))){
@@ -31,6 +40,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->temp_plot->setPixmap(QPixmap::fromImage(*temp));
     ui->temp_hist->setScaledContents(true);
     ui->temp_hist->setPixmap(QPixmap::fromImage(*temp));
+    ui->temp_point->setScaledContents(true);
+    ui->temp_point->setPixmap(QPixmap::fromImage(*temp));
+
 
     ui->qcustomplotWidget->xAxis->setLabel("Gray");
     ui->qcustomplotWidget->yAxis->setLabel("Count");
@@ -42,22 +54,20 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->qcustomplotWidget->yAxis2->setVisible(true);
     ui->qcustomplotWidget->yAxis2->setTickLabels(false);
 }
-
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
-
 //*----------------------------------------------------------*
 
 QImage *img;
 QImage * new_img;
+bool NonLinear_form=true;
 const double bright_coef=1.2;
 const double dim_coef=0.8;
 const int bright_bias=0;
 const int dim_bias=0;
+const double NonLinear_coef=1;
+
 void MainWindow::on_input_clicked()
 {
+
             img=func::func_input();
             ui->input_img->setScaledContents(true);
             ui->input_img->setPixmap(QPixmap::fromImage(*img));
@@ -293,5 +303,13 @@ void MainWindow::on_dim_point_clicked()
 void MainWindow::on_show_histogram_point_clicked()
 {
     hist_show=new Histogram(this);
+    hist_show->setStyleSheet("background-color:black;");
     MainWindow::hist_show->show();
+}
+
+void MainWindow::on_profile_point_clicked()
+{
+    new_img=func::func_profile(new_img,NonLinear_coef,NonLinear_form);
+    ui->trans_img_point->setScaledContents(true);
+    ui->trans_img_point->setPixmap(QPixmap::fromImage(*new_img));
 }

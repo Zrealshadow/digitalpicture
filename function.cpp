@@ -1,4 +1,5 @@
 #include "function.h"
+#define Pi 3.14159
 /*-----------------------------------------------*/
 
 bool isDigitString(QString src){
@@ -60,6 +61,22 @@ int isvalid(int t){
         ans=t;
     return ans;
 }
+
+int NonLinear_sin(double x,const double c,int maxy){
+    double t;
+    t=1.0+sin(c*Pi*(x/maxy-1/2))/sin(Pi/2*c);
+//    qDebug()<<"t"<<t;
+//    qDebug()<<c*Pi*(x/maxy-1/2);
+    return (int)(maxy/2*t);
+}
+
+int NonLinear_tan(double x,const double c,int maxy){
+    double t;
+    t=1.0+tan(c*Pi*(x/maxy-1/2))/tan(Pi/2*c);
+    return (int)(maxy/2*t);
+}
+
+
 /*---------------------------------------------------*/
 
 void func::func_save(QImage *img){
@@ -304,3 +321,34 @@ QImage* func::func_bright_dim(QImage *img,const double a,const int b){
     }
     return new_img;
 }
+
+QImage * func::func_profile(QImage *img,const bool ff,const double c ){
+    QImage *new_img=new QImage(img->width(),img->height(),img->format());
+    int maxy=0;
+    for(int y=0;y<img->height();y++){
+        QRgb * line=(QRgb*)img->scanLine(y);
+        for(int x=0;x<img->width();x++){
+            int average=(qRed(line[x])+qGreen(line[x])+qBlue(line[x]))/3;
+            if(average>maxy)
+                maxy=average;
+        }
+    }
+    qDebug()<<"maxy"<<maxy;
+    for(int y=0;y<img->height();y++){
+        QRgb*line=(QRgb*)img->scanLine(y);
+        for(int x=0;x<img->width();x++){
+            double average=(qRed(line[x])+qGreen(line[x])+qBlue(line[x]))/3;
+            int ans=0;
+            if(ff){
+                ans=NonLinear_sin(average,c,maxy);
+            }
+            else{
+                ans=NonLinear_tan(average,c,maxy);
+            }
+
+            new_img->setPixel(x,y,qRgb(ans,ans,ans));
+        }
+    }
+    return new_img;
+}
+

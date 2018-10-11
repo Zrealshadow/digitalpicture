@@ -60,10 +60,12 @@ private slots:
 
     void on_show_histogram_point_clicked();
 
+    void on_profile_point_clicked();
+
 private:
     Ui::MainWindow *ui;
     Histogram *hist_show;
-
+    void __init__();
 };
 
 #endif // MAINWINDOW_H

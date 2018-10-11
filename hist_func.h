@@ -17,6 +17,6 @@
 
 namespace hist_func {
 QCustomPlot * plot_histogram(QCustomPlot *g,QImage *img);
-
+QHash<QString,double>hist_func_cal(QImage *img);
 }
 #endif // HIST_FUNC_H

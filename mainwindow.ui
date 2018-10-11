@@ -1208,7 +1208,7 @@
      <attribute name="title">
       <string>POINT</string>
      </attribute>
-     <widget class="QLabel" name="temp_hist_point">
+     <widget class="QLabel" name="temp_point">
       <property name="geometry">
        <rect>
         <x>450</x>
@@ -1342,9 +1342,9 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="save_hist_point">
+        <widget class="QPushButton" name="profile_point">
          <property name="text">
-          <string>save</string>
+          <string>profile</string>
          </property>
         </widget>
        </item>
@@ -1362,13 +1362,26 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="show_histogram_point">
+        <widget class="QPushButton" name="save_hist_point">
          <property name="text">
-          <string>histogram</string>
+          <string>save</string>
          </property>
         </widget>
        </item>
       </layout>
+     </widget>
+     <widget class="QPushButton" name="show_histogram_point">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>620</y>
+        <width>80</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>histogram</string>
+      </property>
      </widget>
     </widget>
    </widget>

@@ -46,3 +46,34 @@ QCustomPlot * hist_func::plot_histogram(QCustomPlot *g,QImage *img){
        g->replot();
        return g;
 }
+
+
+QHash<QString,double>hist_func::hist_func_cal(QImage *img){
+    double mean,mid;
+    double stdev;
+    std::vector<int> v(0);
+    for(int y=0;y<img->height();y++){
+        QRgb *line=(QRgb *)img->scanLine(y);
+        for(int x=0;x<img->width();x++){
+             int average=(qRed(line[x])+qGreen(line[x])+qBlue(line[x]))/3;
+             v.push_back(average);
+        }
+    }
+    double sum=std::accumulate(std::begin(v),std::end(v),0.0);
+    mean=sum/v.size();
+    double accum=0.0;
+
+    std::for_each (std::begin(v), std::end(v), [&](const double d) {
+        accum  += (d-mean)*(d-mean);
+    });
+    stdev=sqrt(accum/(v.size()-1));
+    sort(v.begin(),v.begin()+v.size());
+    mid=v[v.size()/2];
+
+    QHash<QString,double>map;
+    map.insert("Mean",mean);
+    map.insert("Mid",mid);
+    map.insert("Stdev",stdev);
+
+    return map;
+}

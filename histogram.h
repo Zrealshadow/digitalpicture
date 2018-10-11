@@ -20,6 +20,7 @@ private slots:
 
 private:
     Ui::Histogram *ui;
+    void __init__();
 };
 
 #endif // HISTOGRAM_H
