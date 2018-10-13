@@ -29,7 +29,7 @@
     <property name="currentIndex">
      <number>5</number>
     </property>
-    <widget class="QWidget" name="sampling">
+    <widget class="QWidget" name="SAMPLE">
      <property name="whatsThis">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;sampling&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
@@ -282,7 +282,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="qualitify">
+    <widget class="QWidget" name="QUALITIFY">
      <attribute name="title">
       <string>QUALITIFY</string>
      </attribute>
@@ -650,7 +650,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="plot">
+    <widget class="QWidget" name="THRESH">
      <attribute name="title">
       <string>THRESH</string>
      </attribute>
@@ -952,7 +952,7 @@
       </layout>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab">
+    <widget class="QWidget" name="HIST">
      <attribute name="title">
       <string>HIST</string>
      </attribute>
@@ -1204,7 +1204,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab_2">
+    <widget class="QWidget" name="POINT">
      <attribute name="title">
       <string>POINT</string>
      </attribute>
@@ -1323,7 +1323,7 @@
        <item>
         <widget class="QPushButton" name="bright_point">
          <property name="text">
-          <string>bright</string>
+          <string>Bright</string>
          </property>
         </widget>
        </item>
@@ -1343,7 +1343,7 @@
        <item>
         <widget class="QPushButton" name="profile_point">
          <property name="text">
-          <string>profile</string>
+          <string>Profile</string>
          </property>
         </widget>
        </item>
@@ -1363,7 +1363,27 @@
        <item>
         <widget class="QPushButton" name="dim_point">
          <property name="text">
-          <string>dim</string>
+          <string>Dim</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_14">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="equal_point">
+         <property name="text">
+          <string>Equal</string>
          </property>
         </widget>
        </item>
@@ -1383,7 +1403,7 @@
        <item>
         <widget class="QPushButton" name="show_histogram_point">
          <property name="text">
-          <string>histogram</string>
+          <string>Histogram</string>
          </property>
         </widget>
        </item>

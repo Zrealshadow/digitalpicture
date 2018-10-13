@@ -62,6 +62,10 @@ private slots:
 
     void on_profile_point_clicked();
 
+
+
+    void on_equal_point_clicked();
+
 private:
     Ui::MainWindow *ui;
     Histogram *hist_show;

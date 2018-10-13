@@ -352,3 +352,41 @@ QImage * func::func_profile(QImage *img,const bool ff,const double c ){
     return new_img;
 }
 
+QImage* func::func_equal(QImage *img){
+    QImage *new_img=new QImage(img->width(),img->height(),img->format());
+
+    int miny=256,maxy=0;
+    int size=img->height()*img->width();
+    QVector<double> vlist(256);
+    for(int y=0;y<img->height();y++){
+        QRgb* line=(QRgb*)img->scanLine(y);
+        for(int x=0;x<img->width();x++){
+            int v=(qRed(line[x])+qGreen(line[x])+qBlue(line[x]))/3;
+            vlist[v]+=1;
+            if(v>maxy)
+                maxy=v;
+            if(v<miny)
+                miny=v;
+        }
+    }
+    for(int i=miny;i<=maxy;i++){
+        vlist[i]=vlist[i]/size;
+        if(i!=miny)
+            vlist[i]=vlist[i]+vlist[i-1];
+    }
+    QVector<int> trans_list(256);
+    for(int i=miny;i<=maxy;i++){
+        trans_list[i]=(int)(vlist[i]*(256-1));
+    }
+
+    for(int y=0;y<img->height();y++){
+        QRgb* line=(QRgb*)img->scanLine(y);
+        for(int x=0;x<img->width();x++){
+            int v=(qRed(line[x])+qGreen(line[x])+qBlue(line[x]))/3;
+            int tv=trans_list[v];
+            new_img->setPixel(x,y,qRgb(tv,tv,tv));
+        }
+    }
+
+    return new_img;
+}

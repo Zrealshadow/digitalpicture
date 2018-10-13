@@ -40,6 +40,8 @@ QVector<double> func_pixmap(QImage *img);
 QImage* func_bright_dim(QImage *img,const double a,const int b);
 
 QImage* func_profile(QImage *img,const bool ff,const double c);
+
+QImage* func_equal(QImage *img);
 }
 
 #endif // FUNCTION_H

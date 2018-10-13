@@ -64,7 +64,7 @@ const double bright_coef=1.2;
 const double dim_coef=0.8;
 const int bright_bias=0;
 const int dim_bias=0;
-const double NonLinear_coef=1;
+const double NonLinear_coef=1.0;
 void MainWindow::input_init(){
     ui->input_img->setScaledContents(true);
     ui->input_img->setPixmap(QPixmap::fromImage(*img));
@@ -332,6 +332,15 @@ void MainWindow::on_show_histogram_point_clicked()
 void MainWindow::on_profile_point_clicked()
 {
     new_img=func::func_profile(new_img,NonLinear_coef,NonLinear_form);
+    ui->trans_img_point->setScaledContents(true);
+    ui->trans_img_point->setPixmap(QPixmap::fromImage(*new_img));
+}
+
+
+
+void MainWindow::on_equal_point_clicked()
+{
+    new_img=func::func_equal(img);
     ui->trans_img_point->setScaledContents(true);
     ui->trans_img_point->setPixmap(QPixmap::fromImage(*new_img));
 }
