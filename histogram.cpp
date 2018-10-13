@@ -47,3 +47,47 @@ void Histogram::__init__(){
     ui->stdev_Hist_new_img->insert(QString::number(map["Stdev"],10,2));
     //insert text
 }
+
+void Histogram::on_pushButton_clicked()
+{
+    QFileDialog * fileDialog=new QFileDialog();
+    fileDialog->setWindowTitle(Histogram::tr("save As"));
+    fileDialog->setAcceptMode(QFileDialog::AcceptSave);
+    fileDialog->setFileMode(QFileDialog::AnyFile);
+    fileDialog->setViewMode(QFileDialog::Detail);
+    fileDialog->setGeometry(500,300,1000,600);
+    fileDialog->setDirectory("..");
+    fileDialog->selectNameFilter(Histogram::tr("Image Files(*.png *.bmp *.jpg *.tif *.GIF)"));
+    QString filename=fileDialog->getSaveFileName();
+    if(filename.isEmpty())
+    {
+
+    }
+    else
+    {
+        if(! ui->hist_1->savePng(filename) ) //保存图像
+        {
+            QMessageBox::information(NULL,
+                Histogram::tr("Failed to save the image"),
+                Histogram::tr("Failed to save the image!"));
+
+        }
+    }
+
+
+    QString filename2=fileDialog->getSaveFileName();
+    if(filename.isEmpty())
+    {
+
+    }
+    else
+    {
+        if(! ui->hist_2->savePng(filename2) ) //保存图像
+        {
+            QMessageBox::information(NULL,
+                Histogram::tr("Failed to save the image"),
+                Histogram::tr("Failed to save the image!"));
+
+        }
+    }
+}

@@ -54,6 +54,7 @@ void MainWindow::__init__(){
     ui->qcustomplotWidget->yAxis2->setVisible(true);
     ui->qcustomplotWidget->yAxis2->setTickLabels(false);
 }
+
 //*----------------------------------------------------------*
 
 QImage *img;
@@ -64,18 +65,42 @@ const double dim_coef=0.8;
 const int bright_bias=0;
 const int dim_bias=0;
 const double NonLinear_coef=1;
+void MainWindow::input_init(){
+    ui->input_img->setScaledContents(true);
+    ui->input_img->setPixmap(QPixmap::fromImage(*img));
+    ui->trans_img->clear();
+
+    ui->input_img_2->setScaledContents(true);
+    ui->input_img_2->setPixmap(QPixmap::fromImage(*img));
+    ui->trans_img_2->clear();
+
+    ui->input_img_3->setScaledContents(true);
+    ui->input_img_3->setPixmap(QPixmap::fromImage(*img));
+
+    ui->input_img_plot->setScaledContents(true);
+    ui->input_img_plot->setPixmap(QPixmap::fromImage(*img));
+    ui->trans_img_plot->clear();
+
+    ui->input_img_hist->setScaledContents(true);
+    ui->input_img_hist->setPixmap(QPixmap::fromImage(*img));
+
+    ui->input_img_point->setScaledContents(true);
+    ui->input_img_point->setPixmap(QPixmap::fromImage(*img));
+    ui->trans_img_point->clear();
+
+
+}
 
 void MainWindow::on_input_clicked()
 {
 
             img=func::func_input();
-            ui->input_img->setScaledContents(true);
-            ui->input_img->setPixmap(QPixmap::fromImage(*img));
+            input_init();
             ui->img_x->clear();
             ui->img_y->clear();
             ui->line_x->clear();
             ui->line_y->clear();
-            ui->trans_img->clear();
+
             ui->img_x->insert(QString::number(img->width(),10));
             ui->img_y->insert(QString::number(img->height(),10));
 
@@ -115,8 +140,7 @@ void MainWindow::on_input_3_clicked()
 {
     img=func::func_input();
     ui->Gray->clear();
-    ui->input_img_2->setScaledContents(true);
-    ui->input_img_2->setPixmap(QPixmap::fromImage(*img));
+    input_init();
 
 }
 
@@ -128,8 +152,8 @@ void MainWindow::on_save_3_clicked()
 void MainWindow::on_input_4_clicked()
 {
     img=func::func_input();
-    ui->input_img_3->setScaledContents(true);
-    ui->input_img_3->setPixmap(QPixmap::fromImage(*img));
+    input_init();
+
 }
 
 void MainWindow::on_save_4_clicked()
@@ -158,8 +182,7 @@ void MainWindow::on_bmp2txt_clicked()
 void MainWindow::on_input_plot_clicked()
 {
     img=func::func_input();
-    ui->input_img_plot->setScaledContents(true);
-    ui->input_img_plot->setPixmap(QPixmap::fromImage(*img));
+    input_init();
 
 }
 
@@ -192,8 +215,8 @@ void MainWindow::on_input_hist_clicked()
 {
 
     img=func::func_input();
-    ui->input_img_hist->setScaledContents(true);
-    ui->input_img_hist->setPixmap(QPixmap::fromImage(*img));
+    input_init();
+
 }
 
 void MainWindow::on_hist_clicked()
@@ -274,8 +297,7 @@ void MainWindow::on_input_hist_point_clicked()
 {
     img=func::func_input();
     new_img=img;
-    ui->input_img_point->setScaledContents(true);
-    ui->input_img_point->setPixmap(QPixmap::fromImage(*img));
+    input_init();
 }
 
 void MainWindow::on_save_hist_point_clicked()

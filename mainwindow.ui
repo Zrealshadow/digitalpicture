@@ -1274,9 +1274,9 @@
      <widget class="QWidget" name="horizontalLayoutWidget_65">
       <property name="geometry">
        <rect>
-        <x>170</x>
-        <y>490</y>
-        <width>661</width>
+        <x>340</x>
+        <y>560</y>
+        <width>231</width>
         <height>80</height>
        </rect>
       </property>
@@ -1285,66 +1285,6 @@
         <widget class="QPushButton" name="input_hist_point">
          <property name="text">
           <string>input</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer_118">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="bright_point">
-         <property name="text">
-          <string>bright</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer_119">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="dim_point">
-         <property name="text">
-          <string>dim</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer_8">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="profile_point">
-         <property name="text">
-          <string>profile</string>
          </property>
         </widget>
        </item>
@@ -1370,18 +1310,84 @@
        </item>
       </layout>
      </widget>
-     <widget class="QPushButton" name="show_histogram_point">
+     <widget class="QWidget" name="horizontalLayoutWidget_4">
       <property name="geometry">
        <rect>
-        <x>890</x>
-        <y>620</y>
-        <width>80</width>
-        <height>26</height>
+        <x>140</x>
+        <y>450</y>
+        <width>651</width>
+        <height>80</height>
        </rect>
       </property>
-      <property name="text">
-       <string>histogram</string>
-      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QPushButton" name="bright_point">
+         <property name="text">
+          <string>bright</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_13">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="profile_point">
+         <property name="text">
+          <string>profile</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_12">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="dim_point">
+         <property name="text">
+          <string>dim</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_11">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="show_histogram_point">
+         <property name="text">
+          <string>histogram</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
    </widget>

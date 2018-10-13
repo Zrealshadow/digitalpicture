@@ -66,6 +66,7 @@ private:
     Ui::MainWindow *ui;
     Histogram *hist_show;
     void __init__();
+    void input_init();
 };
 
 #endif // MAINWINDOW_H

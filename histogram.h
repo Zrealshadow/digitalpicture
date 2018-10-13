@@ -18,6 +18,8 @@ public:
 private slots:
     void on_quit_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::Histogram *ui;
     void __init__();
