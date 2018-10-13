@@ -55,6 +55,14 @@ void MainWindow::__init__(){
     ui->qcustomplotWidget->yAxis2->setTickLabels(false);
 }
 
+bool MainWindow::input_isvalid(QImage *p){
+    if(p==NULL){
+        QMessageBox::information(this,tr("Fail"),tr("Your chose is wrong!"));
+        return false;
+    }
+    else
+        return true;
+}
 //*----------------------------------------------------------*
 
 QImage *img;
@@ -94,7 +102,8 @@ void MainWindow::input_init(){
 void MainWindow::on_input_clicked()
 {
 
-            img=func::func_input();
+     img=func::func_input();
+     if(input_isvalid(img)){
             input_init();
             ui->img_x->clear();
             ui->img_y->clear();
@@ -103,6 +112,7 @@ void MainWindow::on_input_clicked()
 
             ui->img_x->insert(QString::number(img->width(),10));
             ui->img_y->insert(QString::number(img->height(),10));
+     }
 
 }
 
@@ -139,8 +149,10 @@ void MainWindow::on_grey_clicked()
 void MainWindow::on_input_3_clicked()
 {
     img=func::func_input();
-    ui->Gray->clear();
-    input_init();
+    if(input_isvalid(img)){
+        ui->Gray->clear();
+        input_init();
+    }
 
 }
 
@@ -152,8 +164,9 @@ void MainWindow::on_save_3_clicked()
 void MainWindow::on_input_4_clicked()
 {
     img=func::func_input();
+    if(input_isvalid(img)){
     input_init();
-
+    }
 }
 
 void MainWindow::on_save_4_clicked()
@@ -182,7 +195,8 @@ void MainWindow::on_bmp2txt_clicked()
 void MainWindow::on_input_plot_clicked()
 {
     img=func::func_input();
-    input_init();
+    if(input_isvalid(img))
+        input_init();
 
 }
 
@@ -215,7 +229,8 @@ void MainWindow::on_input_hist_clicked()
 {
 
     img=func::func_input();
-    input_init();
+    if(input_isvalid(img))
+        input_init();
 
 }
 
@@ -296,8 +311,11 @@ void MainWindow::on_save_hist_clicked()
 void MainWindow::on_input_hist_point_clicked()
 {
     img=func::func_input();
-    new_img=img;
-    input_init();
+    if(input_isvalid(img)){
+        new_img=img;
+        input_init();
+    }
+
 }
 
 void MainWindow::on_save_hist_point_clicked()

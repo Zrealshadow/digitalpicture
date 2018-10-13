@@ -118,7 +118,7 @@ QImage * func::func_input(){
     fileDialog->selectNameFilter(MainWindow::tr("Image Files(*.png *.bmp *.jpg *.tif *.GIF)"));
      QString path=fileDialog->getOpenFileName();
         if(path.isEmpty()){
-
+            return NULL;
         }
         else{
 //            qDebug()<<2;

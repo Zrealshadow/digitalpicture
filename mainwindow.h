@@ -71,6 +71,7 @@ private:
     Histogram *hist_show;
     void __init__();
     void input_init();
+    bool input_isvalid(QImage *img);
 };
 
 #endif // MAINWINDOW_H
