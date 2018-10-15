@@ -27,7 +27,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;sampling&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>6</number>
     </property>
     <widget class="QWidget" name="SAMPLE">
      <property name="whatsThis">
@@ -1408,6 +1408,98 @@
         </widget>
        </item>
       </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>SPACE</string>
+     </attribute>
+     <widget class="QLabel" name="fig_space">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>30</y>
+        <width>661</width>
+        <height>571</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="input_space">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>640</y>
+        <width>80</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>INPUT</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="save_space">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>640</y>
+        <width>80</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>SAVE</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_72">
+      <property name="geometry">
+       <rect>
+        <x>730</x>
+        <y>30</y>
+        <width>211</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_84">
+       <item>
+        <widget class="QLabel" name="label_79">
+         <property name="text">
+          <string>Multi</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_124">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="space_multi"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="space_zoom">
+      <property name="geometry">
+       <rect>
+        <x>970</x>
+        <y>60</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Zoom</string>
+      </property>
      </widget>
     </widget>
    </widget>

@@ -96,6 +96,7 @@ void MainWindow::input_init(){
     ui->input_img_point->setPixmap(QPixmap::fromImage(*img));
     ui->trans_img_point->clear();
 
+    ui->fig_space->setPixmap(QPixmap::fromImage(*img));
 
 }
 
@@ -361,4 +362,31 @@ void MainWindow::on_equal_point_clicked()
     new_img=func::func_equal(img);
     ui->trans_img_point->setScaledContents(true);
     ui->trans_img_point->setPixmap(QPixmap::fromImage(*new_img));
+}
+
+void MainWindow::on_input_space_clicked()
+{
+    ui->space_multi->clear();
+    img=func::func_input();
+    if(input_isvalid(img)){
+        new_img=img;
+        input_init();
+    }
+}
+
+void MainWindow::on_space_zoom_clicked()
+{
+    QString t=ui->space_multi->text();
+    double coef;
+    bool ok;
+    coef=t.toDouble(&ok);
+//    qDebug()<<t<<coef<<endl<<ok;
+    if(ok){
+
+         new_img=func::func_zoom_in_out(new_img,coef);
+         ui->fig_space->setPixmap(QPixmap::fromImage(*new_img));
+    }
+    else{
+        QMessageBox::information(this,tr("Fail"),tr("Please input the correct coef"));
+    }
 }

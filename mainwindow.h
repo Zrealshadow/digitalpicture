@@ -66,6 +66,10 @@ private slots:
 
     void on_equal_point_clicked();
 
+    void on_input_space_clicked();
+
+    void on_space_zoom_clicked();
+
 private:
     Ui::MainWindow *ui;
     Histogram *hist_show;
