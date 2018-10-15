@@ -428,8 +428,6 @@ int func::func_zoom_trans(QImage *img,double xx,double yy,QString color){
         return -1;
     }
     }
-    int A,B,C,D;
-    D=a;A=b-a;B=c-a;C=d-b-c+a;
     double value=(xx-x)*(yy-y)*c+(xx-x)*(y+1-yy)*a+(x+1-xx)*(yy-y)*d+(x+1-xx)*(y+1-yy)*b;
     return (int)value;
 }
