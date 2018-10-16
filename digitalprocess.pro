@@ -30,7 +30,10 @@ SOURCES += \
     function.cpp \
     qcustomplot.cpp \
     histogram.cpp \
-    hist_func.cpp
+    hist_func.cpp \
+    spacemove.cpp \
+    spacezoom.cpp \
+    sp_func.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -40,11 +43,16 @@ HEADERS += \
     ../../Downloads/qcustomplot/qcustomplot.h \
     qcustomplot.h \
     histogram.h \
-    hist_func.h
+    hist_func.h \
+    spacemove.h \
+    spacezoom.h \
+    sp_func.h
 
 FORMS += \
         mainwindow.ui \
-    histogram.ui
+    histogram.ui \
+    spacemove.ui \
+    spacezoom.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

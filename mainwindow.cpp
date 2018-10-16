@@ -100,6 +100,11 @@ void MainWindow::input_init(){
 
 }
 
+QLabel* MainWindow::output_label(){
+    return ui->fig_space;
+}
+
+//*--------------------------------slot--------------------------------------//
 void MainWindow::on_input_clicked()
 {
 
@@ -376,17 +381,15 @@ void MainWindow::on_input_space_clicked()
 
 void MainWindow::on_space_zoom_clicked()
 {
-    QString t=ui->space_multi->text();
-    double coef;
-    bool ok;
-    coef=t.toDouble(&ok);
-//    qDebug()<<t<<coef<<endl<<ok;
-    if(ok){
+     Spacezoom *input_zoom=new Spacezoom();
 
-         new_img=func::func_zoom_in_out(new_img,coef);
-         ui->fig_space->setPixmap(QPixmap::fromImage(*new_img));
-    }
-    else{
-        QMessageBox::information(this,tr("Fail"),tr("Please input the correct coef"));
-    }
+     input_zoom->fig_spacezoom=ui->fig_space;
+     input_zoom->show();
+
+
+}
+
+void MainWindow::on_space_move_clicked()
+{
+
 }

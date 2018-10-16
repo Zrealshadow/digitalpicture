@@ -43,9 +43,7 @@ QImage* func_profile(QImage *img,const bool ff,const double c);
 
 QImage* func_equal(QImage *img);
 
-QImage* func_zoom_in_out(QImage *img,double coef);
 
-int func_zoom_trans(QImage *img,double x,double y,QString color);
 }
 
 #endif // FUNCTION_H

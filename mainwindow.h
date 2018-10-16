@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <histogram.h>
+#include <spacemove.h>
+#include <spacezoom.h>
 namespace Ui {
 class MainWindow;
 }
@@ -70,12 +72,15 @@ private slots:
 
     void on_space_zoom_clicked();
 
+    void on_space_move_clicked();
+
 private:
     Ui::MainWindow *ui;
     Histogram *hist_show;
     void __init__();
     void input_init();
     bool input_isvalid(QImage *img);
+    QLabel * output_label();
 };
 
 #endif // MAINWINDOW_H
