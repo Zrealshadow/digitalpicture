@@ -13,24 +13,11 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>230</x>
-     <y>480</y>
-     <width>80</width>
-     <height>26</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Zoom</string>
-   </property>
-  </widget>
   <widget class="QWidget" name="horizontalLayoutWidget_72">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>220</y>
+     <x>70</x>
+     <y>30</y>
      <width>211</width>
      <height>91</height>
     </rect>
@@ -39,7 +26,7 @@
     <item>
      <widget class="QLabel" name="label_79">
       <property name="text">
-       <string>Multi</string>
+       <string>X</string>
       </property>
      </widget>
     </item>
@@ -57,15 +44,63 @@
      </spacer>
     </item>
     <item>
-     <widget class="QLineEdit" name="space_multi"/>
+     <widget class="QLineEdit" name="space_moveX"/>
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QWidget" name="horizontalLayoutWidget_73">
    <property name="geometry">
     <rect>
-     <x>360</x>
-     <y>480</y>
+     <x>70</x>
+     <y>120</y>
+     <width>211</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_85">
+    <item>
+     <widget class="QLabel" name="label_80">
+      <property name="text">
+       <string>Y</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer_125">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="space_moveY"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="spacemove_move">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>280</y>
+     <width>80</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>MOVE</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="spacemove_quit">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>280</y>
      <width>80</width>
      <height>26</height>
     </rect>

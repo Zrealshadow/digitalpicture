@@ -23,6 +23,6 @@ int func_zoom_trans(QImage *img,double x,double y,QString color);
 
 QImage *func_zoom_nearby(QImage *img,double coef);
 
-
+QImage *func_move(QImage *img,int dx,int dy);
 }
 #endif // SP_FUNC_H

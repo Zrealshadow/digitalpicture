@@ -391,5 +391,8 @@ void MainWindow::on_space_zoom_clicked()
 
 void MainWindow::on_space_move_clicked()
 {
+    Spacemove *input_move=new Spacemove();
 
+    input_move->fig_spacemove=ui->fig_space;
+    input_move->show();
 }

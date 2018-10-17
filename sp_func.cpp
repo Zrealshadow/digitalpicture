@@ -90,3 +90,22 @@ QImage * sp_func::func_zoom_nearby(QImage *img,double coef){
     return new_img;
 }
 
+
+QImage *sp_func::func_move(QImage *img,int dx,int dy){
+    QImage *new_img=new QImage(img->width(),img->height(),img->format());
+    for(int y=0;y<img->height();y++){
+        for(int x=0;x<img->width();x++){
+            int p_x,p_y;
+            p_x=x-dx;
+            p_y=y-dy;
+            if(p_x>img->width()-1||p_x<0||p_y<0||p_y>img->height()-1){
+                new_img->setPixel(x,y,qRgb(0,0,0));
+            }
+            else{
+                QRgb v=img->pixel(p_x,p_y);
+                new_img->setPixel(x,y,v);
+            }
+        }
+    }
+    return new_img;
+}
