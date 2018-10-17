@@ -1505,6 +1505,19 @@
        <string>Move</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="space_Flip">
+      <property name="geometry">
+       <rect>
+        <x>940</x>
+        <y>200</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Flip</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>

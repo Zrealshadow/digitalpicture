@@ -74,6 +74,8 @@ private slots:
 
     void on_space_move_clicked();
 
+    void on_space_Flip_clicked();
+
 private:
     Ui::MainWindow *ui;
     Histogram *hist_show;

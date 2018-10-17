@@ -390,3 +390,18 @@ QImage* func::func_equal(QImage *img){
 
     return new_img;
 }
+
+QImage* func::func_space_filp(QImage *img){
+    QImage *new_img=new QImage(img->width(),img->height(),img->format());
+
+    for(int y=0;y<img->height();y++){
+        for(int x=0;x<img->width();x++){
+            int tx,ty;
+            tx=img->width()-1-x;
+            ty=img->height()-1-y;
+            QRgb v=img->pixel(tx,y);
+            new_img->setPixel(x,y,v);
+        }
+    }
+    return new_img;
+}

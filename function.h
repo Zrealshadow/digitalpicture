@@ -43,7 +43,7 @@ QImage* func_profile(QImage *img,const bool ff,const double c);
 
 QImage* func_equal(QImage *img);
 
-
+QImage* func_space_filp(QImage *img);
 }
 
 #endif // FUNCTION_H

@@ -396,3 +396,9 @@ void MainWindow::on_space_move_clicked()
     input_move->fig_spacemove=ui->fig_space;
     input_move->show();
 }
+
+void MainWindow::on_space_Flip_clicked()
+{
+    new_img=func::func_space_filp(new_img);
+    ui->fig_space->setPixmap(QPixmap::fromImage(*new_img));
+}
