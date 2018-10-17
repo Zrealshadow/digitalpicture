@@ -17,9 +17,11 @@ public:
     ~Spacezoom();
 
 private slots:
-    void on_pushButton_2_clicked();
+
 
     void on_pushButton_clicked();
+
+    void on_zoom_nearby_clicked();
 
 private:
     Ui::Spacezoom *ui;

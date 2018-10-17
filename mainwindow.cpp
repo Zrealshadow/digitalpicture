@@ -371,7 +371,7 @@ void MainWindow::on_equal_point_clicked()
 
 void MainWindow::on_input_space_clicked()
 {
-    ui->space_multi->clear();
+
     img=func::func_input();
     if(input_isvalid(img)){
         new_img=img;

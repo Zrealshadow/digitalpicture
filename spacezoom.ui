@@ -58,10 +58,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>Zoom</string>
+    <string>DoubleLenear</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="zoom_nearby">
    <property name="geometry">
     <rect>
      <x>190</x>
@@ -71,7 +71,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Quit</string>
+    <string>Nearby</string>
    </property>
   </widget>
  </widget>

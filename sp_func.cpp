@@ -27,6 +27,8 @@ int sp_func::func_zoom_trans(QImage *img,double xx,double yy,QString color){
         d=qGreen(img->pixel(x+1,y+1));
 
     }break;
+
+
     case 3:{
         a=qBlue(img->pixel(x,y));
         b=qBlue(img->pixel(x+1,y));
@@ -61,5 +63,30 @@ QImage * sp_func::func_zoom_in_out(QImage *img ,double coef){
            }
        }
        return new_img;
+}
+
+QImage * sp_func::func_zoom_nearby(QImage *img,double coef){
+    int w,h;
+    w=(int)(img->width()*coef);
+    h=(int)(img->height()*coef);
+
+    QImage *new_img=new QImage (w,h,img->format());
+
+    for(int y=0;y<h;y++){
+        for(int x=0;x<w;x++){
+            double xx,yy;
+            xx=(double)x/coef;
+            yy=(double)y/coef;
+            int p_x,p_y;
+            p_x=xx-(int)xx>0.5?(int)xx+1:(int)xx;
+            p_y=yy-(int)yy>0.5?(int)yy+1:(int)yy;
+            p_x=p_x>img->width()-1?img->width()-1:p_x;
+            p_y=p_y>img->height()-1?img->height()-1:p_y;
+            QRgb v=img->pixel(p_x,p_y);
+            new_img->setPixel(x,y,v);
+        }
+    }
+
+    return new_img;
 }
 

@@ -15,10 +15,6 @@ Spacezoom::~Spacezoom()
     delete ui;
 }
 
-void Spacezoom::on_pushButton_2_clicked()
-{
-    this->close();
-}
 
 void Spacezoom::on_pushButton_clicked()
 {
@@ -35,4 +31,21 @@ void Spacezoom::on_pushButton_clicked()
         this->close();
     }
 
+}
+
+void Spacezoom::on_zoom_nearby_clicked()
+{
+    QString t=ui->space_multi->text();
+    double coef;
+    bool ok=false;
+    coef=t.toDouble(&ok);
+    if(!ok){
+        QMessageBox::information(NULL,Spacezoom::tr("Fail"),Spacezoom::tr("the input is error"));
+    }
+    else{
+        new_img=sp_func::func_zoom_nearby(new_img,coef);
+        this->fig_spacezoom->setPixmap(QPixmap::fromImage(*new_img));
+        this->close();
+
+    }
 }

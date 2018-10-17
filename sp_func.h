@@ -20,5 +20,9 @@ namespace sp_func {
 QImage* func_zoom_in_out(QImage *img,double coef);
 
 int func_zoom_trans(QImage *img,double x,double y,QString color);
+
+QImage *func_zoom_nearby(QImage *img,double coef);
+
+
 }
 #endif // SP_FUNC_H
