@@ -33,7 +33,8 @@ SOURCES += \
     hist_func.cpp \
     spacemove.cpp \
     spacezoom.cpp \
-    sp_func.cpp
+    sp_func.cpp \
+    spacerotate.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -46,13 +47,15 @@ HEADERS += \
     hist_func.h \
     spacemove.h \
     spacezoom.h \
-    sp_func.h
+    sp_func.h \
+    spacerotate.h
 
 FORMS += \
         mainwindow.ui \
     histogram.ui \
     spacemove.ui \
-    spacezoom.ui
+    spacezoom.ui \
+    spacerotate.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

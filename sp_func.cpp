@@ -1,6 +1,6 @@
 #include "sp_func.h"
 #include "spacezoom.h"
-int sp_func::func_zoom_trans(QImage *img,double xx,double yy,QString color){
+int sp_func::func_doublelinear_trans(QImage *img,double xx,double yy,QString color){
     int x,y;
     x=(int)xx;
     y=(int)yy;
@@ -44,6 +44,21 @@ int sp_func::func_zoom_trans(QImage *img,double xx,double yy,QString color){
     return (int)value;
 }
 
+QRgb sp_func::func_nearby_trans(QImage *img,double xx,double yy){
+     int x,y;
+     x=xx-(int)xx>0.5?(int)xx+1:(int)xx;
+     y=yy-(int)yy>0.5?(int)yy+1:(int)yy;
+     x=x>img->width()-1?img->width()-1:x;
+     y=y>img->height()-1?img->height()-1:y;
+     if(x>img->width()-1||x<0||y<0||y>img->height()-1){
+         return qRgb(0,0,0);
+     }
+     else{
+          return img->pixel(x,y);
+     }
+
+}
+
 QImage * sp_func::func_zoom_in_out(QImage *img ,double coef){
        int w,h;
        w=(int)(img->width()*coef);
@@ -56,9 +71,9 @@ QImage * sp_func::func_zoom_in_out(QImage *img ,double coef){
                double xx,yy;
                xx=(double)x/coef;
                yy=(double)y/coef;
-               int r=sp_func::func_zoom_trans(img,xx,yy,"red");
-               int g=sp_func::func_zoom_trans(img,xx,yy,"green");
-               int b=sp_func::func_zoom_trans(img,xx,yy,"blue");
+               int r=sp_func::func_doublelinear_trans(img,xx,yy,"red");
+               int g=sp_func::func_doublelinear_trans(img,xx,yy,"green");
+               int b=sp_func::func_doublelinear_trans(img,xx,yy,"blue");
                new_img->setPixel(x,y,qRgb(r,g,b));
            }
        }
@@ -76,13 +91,8 @@ QImage * sp_func::func_zoom_nearby(QImage *img,double coef){
         for(int x=0;x<w;x++){
             double xx,yy;
             xx=(double)x/coef;
-            yy=(double)y/coef;
-            int p_x,p_y;
-            p_x=xx-(int)xx>0.5?(int)xx+1:(int)xx;
-            p_y=yy-(int)yy>0.5?(int)yy+1:(int)yy;
-            p_x=p_x>img->width()-1?img->width()-1:p_x;
-            p_y=p_y>img->height()-1?img->height()-1:p_y;
-            QRgb v=img->pixel(p_x,p_y);
+            yy=(double)y/coef;   
+            QRgb v=sp_func::func_nearby_trans(img,xx,yy);
             new_img->setPixel(x,y,v);
         }
     }
@@ -104,6 +114,29 @@ QImage *sp_func::func_move(QImage *img,int dx,int dy){
             else{
                 QRgb v=img->pixel(p_x,p_y);
                 new_img->setPixel(x,y,v);
+            }
+        }
+    }
+    return new_img;
+}
+
+QImage * sp_func::func_rotate_DoubleLinear(QImage *img,int cx,int cy,double angle){
+    QImage *new_img=new QImage(img->width(),img->height(),img->format());
+
+    for(int y=0;y<img->height();y++){
+        for(int x=0;x<img->width();x++){
+            double xx,yy;
+            xx=(x-cx)*cos(angle)+(y-cy)*sin(angle)+cx;
+            yy=(y-cy)*cos(angle)-(x-cx)*sin(angle)+cy;
+            if(xx>img->width()-1||xx<0||yy>img->height()-1||yy<0){
+                new_img->setPixel(x,y,qRgb(0,0,0));
+            }
+            else{
+                int r,g,b;
+                r=sp_func::func_doublelinear_trans(img,xx,yy,"red");
+                g=sp_func::func_doublelinear_trans(img,xx,yy,"green");
+                b=sp_func::func_doublelinear_trans(img,xx,yy,"blue");
+                new_img->setPixel(x,y,qRgb(r,g,b));
             }
         }
     }

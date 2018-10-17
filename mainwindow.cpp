@@ -402,3 +402,11 @@ void MainWindow::on_space_Flip_clicked()
     new_img=func::func_space_filp(new_img);
     ui->fig_space->setPixmap(QPixmap::fromImage(*new_img));
 }
+
+void MainWindow::on_space_Rotate_clicked()
+{
+    Spacerotate *input_rotate=new Spacerotate();
+
+    input_rotate->fig_spacerotate=ui->fig_space;
+    input_rotate->show();
+}

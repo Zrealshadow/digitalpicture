@@ -5,6 +5,7 @@
 #include <histogram.h>
 #include <spacemove.h>
 #include <spacezoom.h>
+#include <spacerotate.h>
 namespace Ui {
 class MainWindow;
 }
@@ -75,6 +76,8 @@ private slots:
     void on_space_move_clicked();
 
     void on_space_Flip_clicked();
+
+    void on_space_Rotate_clicked();
 
 private:
     Ui::MainWindow *ui;
