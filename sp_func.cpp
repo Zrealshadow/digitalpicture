@@ -142,3 +142,23 @@ QImage * sp_func::func_rotate_DoubleLinear(QImage *img,int cx,int cy,double angl
     }
     return new_img;
 }
+
+QImage * sp_func::func_rotate_Nearby(QImage *img,int cx,int cy,double angle){
+    QImage * new_img=new QImage(img->width(),img->height(),img->format());
+    for(int y=0;y<img->height();y++){
+        for(int x=0;x<img->width();x++){
+            double xx,yy;
+            xx=(x-cx)*cos(angle)+(y-cy)*sin(angle)+cx;
+            yy=(y-cy)*cos(angle)-(x-cx)*sin(angle)+cy;
+            if(xx>img->width()-1||xx<0||yy>img->height()-1||yy<0){
+                new_img->setPixel(x,y,qRgb(0,0,0));
+            }
+            else{
+                QRgb v;
+                v=sp_func::func_nearby_trans(img,xx,yy);
+                new_img->setPixel(x,y,v);
+            }
+        }
+    }
+    return new_img;
+}

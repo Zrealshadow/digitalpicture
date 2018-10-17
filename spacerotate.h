@@ -19,6 +19,8 @@ public:
 private slots:
     void on_rotate_doublelinear_clicked();
 
+    void on_rotate_nearby_clicked();
+
 private:
     Ui::Spacerotate *ui;
 };
