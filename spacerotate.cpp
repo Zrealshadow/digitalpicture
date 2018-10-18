@@ -10,8 +10,8 @@ Spacerotate::Spacerotate(QWidget *parent) :
 {
 
     ui->setupUi(this);
-    ui->rotate_center_X->insert(QString::number((int)img->width(),10));
-    ui->rotate_center_Y->insert(QString::number((int)img->height(),10));
+    ui->rotate_center_X->insert(QString::number((int)img->width()/2,10));
+    ui->rotate_center_Y->insert(QString::number((int)img->height()/2,10));
 }
 
 Spacerotate::~Spacerotate()

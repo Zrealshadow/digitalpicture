@@ -1534,6 +1534,32 @@
        <string>Rotate</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="space_smooth">
+      <property name="geometry">
+       <rect>
+        <x>940</x>
+        <y>340</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Smooth</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="space_sharpen">
+      <property name="geometry">
+       <rect>
+        <x>940</x>
+        <y>410</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Sharpen</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
