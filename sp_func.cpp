@@ -162,3 +162,96 @@ QImage * sp_func::func_rotate_Nearby(QImage *img,int cx,int cy,double angle){
     }
     return new_img;
 }
+
+QImage * sp_func::func_smooth_average(QImage *img){
+    QImage *new_img=new QImage(img->width(),img->height(),img->format());
+    for(int y=0;y<img->height();y++){
+        for(int x=0;x<img->width();x++){
+            if(x<1 or x>img->width()-2 or y<1 or y>img->height()-2)
+                new_img->setPixel(x,y,img->pixel(x,y));
+            else{
+
+                    std::vector<int> v(0);
+                    for(int i=y-1;i<=y+1;i++){
+                        for(int j=x-1;j<=x+1;j++){
+                            QRgb color=img->pixel(j,i);
+                            int value=(qRed(color)+qGreen(color)+qBlue(color))/3;
+                            v.push_back(value);
+                        }
+                    }
+                   int sum=std::accumulate(std::begin(v),std::end(v),0);
+                   int mean=sum/v.size();
+                   new_img->setPixel(x,y,qRgb(mean,mean,mean));
+            }
+        }
+    }
+    return new_img;
+}
+
+QImage *sp_func::func_smooth_middle(QImage *img){
+    QImage *new_img=new QImage(img->width(),img->height(),img->format());
+
+    for(int y=0;y<img->height();y++){
+        for(int x=0;x<img->width();x++){
+            if(x<1 or x>img->width()-2 or y<1 or y>img->height()-2)
+                new_img->setPixel(x,y,img->pixel(x,y));
+            else{
+
+                std::vector<int> v(0);
+                for(int i=y-1;i<=y+1;i++){
+                    for(int j=x-1;j<=x+1;j++){
+                        QRgb color=img->pixel(j,i);
+                        int value=(qRed(color)+qGreen(color)+qBlue(color))/3;
+                        v.push_back(value);
+                    }
+                }
+                sort(v.begin(),v.end());
+                int ans=v[v.size()/2];
+                new_img->setPixel(x,y,qRgb(ans,ans,ans));
+            }
+        }
+    }
+    return new_img;
+}
+
+bool cmp(const QPair<int,int>a,QPair<int,int>b){
+    return a.first<b.first;
+}
+QImage *sp_func::func_smooth_klinear(QImage *img,int k){
+    QImage *new_img=new QImage(img->width(),img->height(),img->format());
+    for(int y=0;y<img->height();y++){
+        for(int x=0;x<img->width();x++){
+            if(x<1 or x>img->width()-2 or y<1 or y>img->height()-2)
+                new_img->setPixel(x,y,img->pixel(x,y));
+            else{
+                std::vector<QPair<int,int>> l(0);
+                QRgb c=img->pixel(x,y);
+                int v=(qRed(c)+qGreen(c)+qBlue(c))/3;
+                for(int i=y-1;i<=y+1;i++)
+                    for(int j=x-1;j<=x+1;j++){
+                        QRgb color=img->pixel(j,i);
+                        int value=(qRed(color)+qGreen(color)+qBlue(color))/3;
+                        QPair<int,int> pair;
+                        pair.first=abs(value-v);
+                        pair.second=value;
+                        l.push_back(pair);
+                    }
+                sort(l.begin(),l.end(),cmp);
+                int sum=0;
+                std::vector<QPair<int,int>>::iterator it=l.begin();
+                for(int i=0;it!=l.end() && i<k;i++,it++){
+                    sum+=(*it).second;
+                }
+                int ans=k>l.size()?sum/l.size():sum/k;
+                if(x==y){
+                    qDebug()<<l;
+                    qDebug()<<ans;
+                }
+                new_img->setPixel(x,y,qRgb(ans,ans,ans));
+            }
+
+        }
+    }
+    return new_img;
+
+}

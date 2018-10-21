@@ -6,6 +6,7 @@
 #include <spacemove.h>
 #include <spacezoom.h>
 #include <spacerotate.h>
+#include <spacesmooth.h>
 namespace Ui {
 class MainWindow;
 }
@@ -78,6 +79,8 @@ private slots:
     void on_space_Flip_clicked();
 
     void on_space_Rotate_clicked();
+
+    void on_space_smooth_clicked();
 
 private:
     Ui::MainWindow *ui;

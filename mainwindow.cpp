@@ -410,3 +410,11 @@ void MainWindow::on_space_Rotate_clicked()
     input_rotate->fig_spacerotate=ui->fig_space;
     input_rotate->show();
 }
+
+void MainWindow::on_space_smooth_clicked()
+{
+    Spacesmooth *input_smooth=new Spacesmooth();
+
+    input_smooth->fig_spacesmooth=ui->fig_space;
+    input_smooth->show();
+}

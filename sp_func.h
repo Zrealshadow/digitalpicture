@@ -11,7 +11,7 @@
 #include "QImage"
 #include "QHash"
 #include "vector"
-#include "math.h"
+#include "cmath"
 #include "algorithm"
 #include "QPainter"
 #include "QVector"
@@ -29,5 +29,10 @@ QImage *func_move(QImage *img,int dx,int dy);
 QImage *func_rotate_DoubleLinear(QImage *img,int c_x,int c_y,double angle);
 
 QImage *func_rotate_Nearby(QImage *img,int c_x,int c_y,double angle);
+
+QImage *func_smooth_average(QImage *img);
+QImage *func_smooth_middle(QImage *img);
+QImage *func_smooth_klinear(QImage *img,int k);
+
 }
 #endif // SP_FUNC_H

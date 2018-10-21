@@ -34,28 +34,33 @@ SOURCES += \
     spacemove.cpp \
     spacezoom.cpp \
     sp_func.cpp \
-    spacerotate.cpp
+    spacerotate.cpp \
+    spacesmooth.cpp \
+    fig_show.cpp
 
 HEADERS += \
         mainwindow.h \
     function.h \
     function.h \
-    ../../Downloads/qcustomplot.h \
-    ../../Downloads/qcustomplot/qcustomplot.h \
+    qcustomplot.h \
     qcustomplot.h \
     histogram.h \
     hist_func.h \
     spacemove.h \
     spacezoom.h \
     sp_func.h \
-    spacerotate.h
+    spacerotate.h \
+    spacesmooth.h \
+    fig_show.h
 
 FORMS += \
         mainwindow.ui \
     histogram.ui \
     spacemove.ui \
     spacezoom.ui \
-    spacerotate.ui
+    spacerotate.ui \
+    spacesmooth.ui \
+    fig_show.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
