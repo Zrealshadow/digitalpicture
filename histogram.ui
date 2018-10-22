@@ -40,28 +40,28 @@
    <widget class="QCustomPlot" name="hist_2" native="true">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>360</y>
-      <width>861</width>
-      <height>290</height>
+      <x>390</x>
+      <y>379</y>
+      <width>591</width>
+      <height>301</height>
      </rect>
     </property>
    </widget>
    <widget class="QCustomPlot" name="hist_1" native="true">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>390</x>
       <y>50</y>
-      <width>861</width>
-      <height>291</height>
+      <width>591</width>
+      <height>301</height>
      </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="quit">
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>690</y>
+      <x>470</x>
+      <y>710</y>
       <width>80</width>
       <height>26</height>
      </rect>
@@ -73,8 +73,8 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>690</y>
+      <x>330</x>
+      <y>710</y>
       <width>80</width>
       <height>26</height>
      </rect>
@@ -86,9 +86,9 @@
    <widget class="QWidget" name="horizontalLayoutWidget_71">
     <property name="geometry">
      <rect>
-      <x>890</x>
+      <x>990</x>
       <y>70</y>
-      <width>211</width>
+      <width>111</width>
       <height>61</height>
      </rect>
     </property>
@@ -101,19 +101,6 @@
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_124">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
       <widget class="QLineEdit" name="mean_Hist_img"/>
      </item>
     </layout>
@@ -121,9 +108,9 @@
    <widget class="QWidget" name="horizontalLayoutWidget_72">
     <property name="geometry">
      <rect>
-      <x>890</x>
+      <x>990</x>
       <y>160</y>
-      <width>211</width>
+      <width>111</width>
       <height>61</height>
      </rect>
     </property>
@@ -136,19 +123,6 @@
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_125">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
       <widget class="QLineEdit" name="stdev_Hist_img"/>
      </item>
     </layout>
@@ -156,9 +130,9 @@
    <widget class="QWidget" name="horizontalLayoutWidget_73">
     <property name="geometry">
      <rect>
-      <x>890</x>
+      <x>990</x>
       <y>250</y>
-      <width>211</width>
+      <width>111</width>
       <height>61</height>
      </rect>
     </property>
@@ -171,19 +145,6 @@
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_126">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
       <widget class="QLineEdit" name="mid_Hist_img"/>
      </item>
     </layout>
@@ -191,9 +152,9 @@
    <widget class="QWidget" name="horizontalLayoutWidget_74">
     <property name="geometry">
      <rect>
-      <x>890</x>
-      <y>380</y>
-      <width>211</width>
+      <x>990</x>
+      <y>410</y>
+      <width>111</width>
       <height>61</height>
      </rect>
     </property>
@@ -226,9 +187,9 @@
    <widget class="QWidget" name="horizontalLayoutWidget_75">
     <property name="geometry">
      <rect>
-      <x>890</x>
-      <y>560</y>
-      <width>211</width>
+      <x>990</x>
+      <y>590</y>
+      <width>111</width>
       <height>61</height>
      </rect>
     </property>
@@ -241,19 +202,6 @@
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_131">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
       <widget class="QLineEdit" name="mid_Hist_new_img"/>
      </item>
     </layout>
@@ -261,9 +209,9 @@
    <widget class="QWidget" name="horizontalLayoutWidget_76">
     <property name="geometry">
      <rect>
-      <x>890</x>
-      <y>470</y>
-      <width>211</width>
+      <x>990</x>
+      <y>500</y>
+      <width>111</width>
       <height>61</height>
      </rect>
     </property>
@@ -292,6 +240,32 @@
       <widget class="QLineEdit" name="stdev_Hist_new_img"/>
      </item>
     </layout>
+   </widget>
+   <widget class="QLabel" name="cmp_img">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>50</y>
+      <width>341</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="cmp_new_img">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>380</y>
+      <width>341</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
    </widget>
   </widget>
  </widget>

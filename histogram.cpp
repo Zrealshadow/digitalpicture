@@ -17,7 +17,6 @@ Histogram::~Histogram()
     delete ui;
 }
 
-extern QImage *img;
 
 void Histogram::on_quit_clicked()
 {
@@ -32,6 +31,10 @@ void Histogram::__init__(){
     ui->mid_Hist_new_img->clear();
     ui->stdev_Hist_new_img->clear();
     // clear all text and graphs
+    ui->cmp_img->setScaledContents(true);
+    ui->cmp_new_img->setScaledContents(true);
+    ui->cmp_img->setPixmap(QPixmap::fromImage(*img));
+    ui->cmp_new_img->setPixmap(QPixmap::fromImage(*new_img));
 
     ui->hist_1=hist_func::plot_histogram(ui->hist_1,img);
     ui->hist_2=hist_func::plot_histogram(ui->hist_2,new_img);

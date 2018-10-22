@@ -433,3 +433,10 @@ void MainWindow::on_space_conv_clicked()
     input_conv->fig_spaceconv=ui->fig_space;
     input_conv->show();
 }
+
+void MainWindow::on_compare_space_clicked()
+{
+    hist_show=new Histogram(this);
+    hist_show->setStyleSheet("background-color:black;");
+    MainWindow::hist_show->show();
+}

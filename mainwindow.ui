@@ -27,7 +27,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;sampling&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="SAMPLE">
      <property name="whatsThis">
@@ -1571,6 +1571,19 @@
       </property>
       <property name="text">
        <string>Convolution</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="compare_space">
+      <property name="geometry">
+       <rect>
+        <x>590</x>
+        <y>660</y>
+        <width>80</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>COMPARE</string>
       </property>
      </widget>
     </widget>

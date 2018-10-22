@@ -311,7 +311,7 @@ QImage *sp_func::func_filter_trans(QImage *img,std::vector<std::vector<int>>filt
         std::vector<int> v(f_b,0);
         filter.push_back(v);
     }
-    qDebug()<<f_b<<f_a<<endl<<filter;
+//    qDebug()<<f_b<<f_a<<endl<<filter;
     for(int y=0;y<img->height();y++){
         for(int x=0;x<img->width();x++){
             if(x-f_b/2<0 or y-f_a/2<0 or x+f_b/2>img->width()-1 or y+f_a/2>img->height()-1 ){
@@ -324,5 +324,6 @@ QImage *sp_func::func_filter_trans(QImage *img,std::vector<std::vector<int>>filt
             }
         }
     }
+    qDebug()<<img<<endl<<2;
     return new_img;
 }

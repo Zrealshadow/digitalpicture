@@ -88,6 +88,8 @@ private slots:
 
     void on_space_conv_clicked();
 
+    void on_compare_space_clicked();
+
 private:
     Ui::MainWindow *ui;
     Histogram *hist_show;
