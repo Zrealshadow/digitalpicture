@@ -275,10 +275,11 @@ filter_operate sp_func::struct_filter(int xx,int yy,QString s){
     QStringList l=s.split(',');
     std::vector<int> m(0);
     std::vector<std::vector<int>> ans(0);
+    int c=l.size();
     bool ok;
     for(int i=0;i<l.size();i++){
         int v=l[i].toInt(&ok);
-        if(!ok)
+        if(!ok or c!=xx*yy)
             return ans;
         else{
             m.push_back(v);

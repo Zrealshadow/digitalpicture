@@ -426,3 +426,10 @@ void MainWindow::on_space_sharpen_clicked()
    input_sharpen->fig_spacesharpen=ui->fig_space;
    input_sharpen->show();
 }
+
+void MainWindow::on_space_conv_clicked()
+{
+    Spaceconv *input_conv=new Spaceconv();
+    input_conv->fig_spaceconv=ui->fig_space;
+    input_conv->show();
+}

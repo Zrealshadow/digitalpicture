@@ -1560,6 +1560,19 @@
        <string>Sharpen</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="space_conv">
+      <property name="geometry">
+       <rect>
+        <x>940</x>
+        <y>480</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Convolution</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
