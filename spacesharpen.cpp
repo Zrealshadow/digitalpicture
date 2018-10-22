@@ -37,7 +37,11 @@ void Spacesharpen::on_sharpen_roberts_clicked()
 
 void Spacesharpen::on_sharpen_laplace_clicked()
 {
-
+    filter_operate filter_laplace;
+    filter_laplace=sp_func::struct_filter(3,3,"0,-1,0,-1,4,-1,0,-1,0");
+    new_img=sp_func::func_filter_trans(img,filter_laplace);
+    this->fig_spacesharpen->setPixmap(QPixmap::fromImage(*new_img));
+    this->close();
 }
 
 void Spacesharpen::on_sharpen_sobel_clicked()
