@@ -418,3 +418,11 @@ void MainWindow::on_space_smooth_clicked()
     input_smooth->fig_spacesmooth=ui->fig_space;
     input_smooth->show();
 }
+
+void MainWindow::on_space_sharpen_clicked()
+{
+   Spacesharpen *input_sharpen=new Spacesharpen();
+
+   input_sharpen->fig_spacesharpen=ui->fig_space;
+   input_sharpen->show();
+}

@@ -15,7 +15,7 @@
 #include "algorithm"
 #include "QPainter"
 #include "QVector"
-
+typedef std::vector<std::vector<int>>  filter_operate;
 namespace sp_func {
 QImage* func_zoom_in_out(QImage *img,double coef);
 
@@ -34,5 +34,9 @@ QImage *func_smooth_average(QImage *img);
 QImage *func_smooth_middle(QImage *img);
 QImage *func_smooth_klinear(QImage *img,int k);
 
+QImage *func_filter_trans(QImage *img,std::vector<std::vector<int>> filter);
+int cal_filter(QImage *img,std::vector<std::vector<int>>filter,int x,int y);
+filter_operate struct_filter(int x,int y,QString s);
 }
+
 #endif // SP_FUNC_H

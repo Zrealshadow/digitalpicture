@@ -36,7 +36,8 @@ SOURCES += \
     sp_func.cpp \
     spacerotate.cpp \
     spacesmooth.cpp \
-    fig_show.cpp
+    fig_show.cpp \
+    spacesharpen.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -51,7 +52,8 @@ HEADERS += \
     sp_func.h \
     spacerotate.h \
     spacesmooth.h \
-    fig_show.h
+    fig_show.h \
+    spacesharpen.h
 
 FORMS += \
         mainwindow.ui \
@@ -60,7 +62,8 @@ FORMS += \
     spacezoom.ui \
     spacerotate.ui \
     spacesmooth.ui \
-    fig_show.ui
+    fig_show.ui \
+    spacesharpen.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
