@@ -67,6 +67,7 @@ bool MainWindow::input_isvalid(QImage *p){
 
 QImage *img;
 QImage * new_img;
+QImage *origin_img;
 bool NonLinear_form=true;
 const double bright_coef=1.2;
 const double dim_coef=0.8;
@@ -109,6 +110,8 @@ void MainWindow::on_input_clicked()
 {
 
      img=func::func_input();
+     origin_img=new QImage(img->width(),img->height(),img->format());
+     *origin_img=*img;
      if(input_isvalid(img)){
             input_init();
             ui->img_x->clear();
@@ -155,6 +158,8 @@ void MainWindow::on_grey_clicked()
 void MainWindow::on_input_3_clicked()
 {
     img=func::func_input();
+    origin_img=new QImage(img->width(),img->height(),img->format());
+    *origin_img=*img;
     if(input_isvalid(img)){
         ui->Gray->clear();
         input_init();
@@ -170,6 +175,8 @@ void MainWindow::on_save_3_clicked()
 void MainWindow::on_input_4_clicked()
 {
     img=func::func_input();
+    origin_img=new QImage(img->width(),img->height(),img->format());
+    *origin_img=*img;
     if(input_isvalid(img)){
     input_init();
     }
@@ -201,6 +208,8 @@ void MainWindow::on_bmp2txt_clicked()
 void MainWindow::on_input_plot_clicked()
 {
     img=func::func_input();
+    origin_img=new QImage(img->width(),img->height(),img->format());
+    *origin_img=*img;
     if(input_isvalid(img))
         input_init();
 
@@ -235,6 +244,8 @@ void MainWindow::on_input_hist_clicked()
 {
 
     img=func::func_input();
+    origin_img=new QImage(img->width(),img->height(),img->format());
+    *origin_img=*img;
     if(input_isvalid(img))
         input_init();
 
@@ -317,6 +328,8 @@ void MainWindow::on_save_hist_clicked()
 void MainWindow::on_input_hist_point_clicked()
 {
     img=func::func_input();
+    origin_img=new QImage(img->width(),img->height(),img->format());
+    *origin_img=*img;
     if(input_isvalid(img)){
         new_img=img;
         input_init();
@@ -373,6 +386,8 @@ void MainWindow::on_input_space_clicked()
 {
 
     img=func::func_input();
+    origin_img=new QImage(img->width(),img->height(),img->format());
+    *origin_img=*img;
     if(input_isvalid(img)){
         new_img=img;
         input_init();

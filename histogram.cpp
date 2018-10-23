@@ -2,6 +2,7 @@
 #include "ui_histogram.h"
 extern QImage *img;
 extern QImage *new_img;
+extern QImage *origin_img;
 Histogram::Histogram(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Histogram)
@@ -33,14 +34,14 @@ void Histogram::__init__(){
     // clear all text and graphs
     ui->cmp_img->setScaledContents(true);
     ui->cmp_new_img->setScaledContents(true);
-    ui->cmp_img->setPixmap(QPixmap::fromImage(*img));
+    ui->cmp_img->setPixmap(QPixmap::fromImage(*origin_img));
     ui->cmp_new_img->setPixmap(QPixmap::fromImage(*new_img));
 
-    ui->hist_1=hist_func::plot_histogram(ui->hist_1,img);
+    ui->hist_1=hist_func::plot_histogram(ui->hist_1,origin_img);
     ui->hist_2=hist_func::plot_histogram(ui->hist_2,new_img);
     //plot
 
-    QHash<QString,double>map=hist_func::hist_func_cal(img);
+    QHash<QString,double>map=hist_func::hist_func_cal(origin_img);
     ui->mean_Hist_img->insert(QString::number((int)map["Mean"],10));
     ui->mid_Hist_img->insert(QString::number((int)map["Mid"],10));
     ui->stdev_Hist_img->insert(QString::number(map["Stdev"],10,2));
