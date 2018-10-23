@@ -64,7 +64,7 @@ int isvalid(int t){
 
 int NonLinear_sin(double x,const double c,int maxy){
     double t;
-    t=1.0+sin(c*Pi*(x/maxy-1/2))/sin(Pi/2*c);
+    t=1.0+sin(c*Pi*(x/maxy-1.0/2))/sin(Pi/2*c);
 //    qDebug()<<"t"<<t;
 //    qDebug()<<c*Pi*(x/maxy-1/2);
     return (int)(maxy/2*t);
@@ -72,7 +72,7 @@ int NonLinear_sin(double x,const double c,int maxy){
 
 int NonLinear_tan(double x,const double c,int maxy){
     double t;
-    t=1.0+tan(c*Pi*(x/maxy-1/2))/tan(Pi/2*c);
+    t=1.0+tan(c*Pi*(x/maxy-1.0/2))/tan(Pi/2*c);
     return (int)(maxy/2*t);
 }
 

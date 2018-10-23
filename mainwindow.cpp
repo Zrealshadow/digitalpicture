@@ -368,7 +368,7 @@ void MainWindow::on_show_histogram_point_clicked()
 
 void MainWindow::on_profile_point_clicked()
 {
-    new_img=func::func_profile(new_img,NonLinear_coef,NonLinear_form);
+    new_img=func::func_profile(new_img,NonLinear_form,NonLinear_coef);
     ui->trans_img_point->setScaledContents(true);
     ui->trans_img_point->setPixmap(QPixmap::fromImage(*new_img));
 }
