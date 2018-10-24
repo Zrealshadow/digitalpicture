@@ -69,6 +69,7 @@ QImage *img;
 QImage * new_img;
 QImage *origin_img;
 bool NonLinear_form=true;
+
 const double bright_coef=1.2;
 const double dim_coef=0.8;
 const int bright_bias=0;
